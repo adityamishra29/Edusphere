@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Classroom - EduReach</title>
+    <link rel="stylesheet" href="headerfooter.css">
+	<link rel="stylesheet" href="notes.css">
+	<style>
+		nav{
+			display: flex;
+			position: relative;
+			width: 100vw;
+			
+		}
+		footer{
+			display: flex;
+			position: relative;
+			width: 100vw;
+			
+		}
+	</style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header id="header">
+        <nav>
+            <div class="logo"><a href="/EduReach/Web Application/index.html"><img src="images/icon/logo.png" alt="logo"></a></div>
+            <ul>
+                <li><a href="/EduReach/Web Application/Sessions/Live_Sessions.html" >Live Sessions</a></li>
+                <li><a href="/EduReach/Web Application/Sessions/RecordedSessons.html">Recorded Sessions</a></li>
+                <li><a href="/EduReach/Web Application/Sessions/PreRecodedLecture.html">Pre Recorded Lectures</a></li>
+                <li><a href="/EduReach/Web Application/Sessions/notes.html" class="active">Notes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<!-- Start From Here -->
+
+<br>
+<h1>Study Materials</h1>
+
+<div class="search-bar">
+	<input type="text" id="search" placeholder="Search for notes, topics, or materials..." onkeyup="filterMaterials()">
+</div>
+
+<div class="materials-container" id="materialsContainer">
+	
+	<div class="material-category">
+		<div class="category-title">Mathematics</div>
+		<a href="https://drive.google.com/drive/folders/1uDD83g-xXprLfQrm-Q09HFQ_l3-8XOBW?usp=drive_link" class="material-link" target="_blank">Mathematics Notes</a>
+		
+	</div>
+	<div class="material-category">
+		<div class="category-title">Computer Science</div>
+		<a href="https://drive.google.com/drive/folders/1Uqqb9PJUb6eEGsSNLR1XP1RjTLPL3gdq?usp=drive_link" class="material-link" target="_blank">Computer Science Notes</a>
+		
+	</div>
+	<div class="material-category">
+		<div class="category-title">Physics</div>
+		<a href="https://drive.google.com/drive/folders/1csaY7ZU8GGy1fe9httbjmmqEcvL2I-5C?usp=drive_link" class="material-link" target="_blank">Physics Notes</a>
+		
+	</div>
+	<div class="material-category">
+		<div class="category-title">Chemistry</div>
+		<a href="https://drive.google.com/drive/folders/1BaTEJhrYKVmRr7h3395q2_Ns5VeP6ykt?usp=drive_link" class="material-link" target="_blank">Chemistry Notes</a>
+		
+	</div>
+	<div class="material-category">
+		<div class="category-title">Biology</div>
+		<a href="https://drive.google.com/drive/folders/1-xz67eTmXWunRG8n3ShxBydoxQGw5xQT?usp=drive_link" class="material-link" target="_blank">Biology Notes</a>
+		
+	</div>
+	<div class="material-category">
+		<div class="category-title">Science</div>
+		<a href="https://drive.google.com/drive/folders/1XICSzKzBofhq-VnI66l3jh0utv1Qz6Pg?usp=drive_link" class="material-link" target="_blank">Science Notes</a>
+		
+	</div>
+</div>
+<br>
+<br>
+
+  <!-- FOOTER -->
+  <footer>
+	<div class="footer-container">
+		<div class="left-col">
+			<img src="images/icon/logo - Copy.png" style="width: 200px;">
+			<div class="social-media">
+				<a href="#"><img src="images/icon/fb.png"></a>
+				<a href="#"><img src="images/icon/insta.png"></a>
+				<a href="#"><img src="images/icon/tt.png"></a>
+				<a href="#"><img src="images/icon/ytube.png"></a>
+				<a href="#"><img src="images/icon/linkedin.png"></a>
+			</div><br><br>
+			<p class="rights-text">Copyright © 2024 Developed by EduReach. All Rights Reserved.</p>
+			<br>
+			<p><img src="images/icon/location.png"> New Delhi, India<br></p>
+			<br>
+			<p><img src="images/icon/phone.png"> +91-1234-567-890<br><img src="images/icon/mail.png">&nbsp; info@EduReach.com</p>
+		</div>
+		<div class="right-col">
+			<h1 style="color: #fff">Our Newsletter</h1>
+			<div class="border"></div><br>
+			<p>Enter Your Email to get our News and updates.</p>
+			<form class="newsletter-form">
+				<input class="txtb" type="email" placeholder="Enter Your Email">
+				<input class="btn" type="submit" value="Subscribe">
+			</form>
+		</div>
+	</div>
+</footer>
+
+	<script>
+        function filterMaterials() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const materials = document.querySelectorAll('.material-category');
+            
+            materials.forEach(category => {
+                const title = category.querySelector('.category-title').textContent.toLowerCase();
+                const links = category.querySelectorAll('.material-link');
+                let isVisible = title.includes(searchInput);
+
+                links.forEach(link => {
+                    if (link.textContent.toLowerCase().includes(searchInput)) {
+                        isVisible = true;
+                    }
+                });
+
+                category.style.display = isVisible ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+
+</html>
