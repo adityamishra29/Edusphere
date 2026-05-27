@@ -1,92 +1,102 @@
         /* Container for each class section */
         .class-section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             text-align: center;
-            /* Centers the entire class section */
         }
 
         /* Flexbox to center the subject boxes */
         .subjects-container {
             display: flex;
             flex-wrap: wrap;
-            /* Allow boxes to wrap onto the next line if necessary */
             justify-content: center;
-            /* Center the subject boxes horizontally */
-            gap: 20px;
-            /* Space between subject boxes */
-            margin-top: 20px;
+            gap: 25px;
+            margin-top: 30px;
         }
 
-        /* Fixed square box for subject items */
+        /* Modern EduSphere Card styling */
         .subject-item {
-            background-color: #f4f4f4;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
+            background: #ffffff;
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
             text-align: center;
-            width: 4cm;
-            /* Fixed width of 4cm */
-            height: 4cm;
-            /* Fixed height of 4cm (square) */
-            display: inline-block;
-            /* Ensures that multiple subject boxes appear side by side */
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .subject-item:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(241, 90, 34, 0.15);
+            border-color: #fca5a5;
         }
 
         .subject-item h4 {
             margin-top: 0;
-            font-size: 16px;
-            /* Font size for better readability inside the square box */
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
         }
 
         .subject-item p {
-            margin: 5px 0;
+            margin: 5px 0 20px 0;
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         /* Professional Button Styling */
         .join-meeting-btn {
-            background-color: #007BFF;
-            /* Blue color */
+            background: linear-gradient(135deg, #F15A22, #FF7A00);
             color: white;
-            padding: 12px 24px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
             text-align: center;
             display: inline-block;
             text-decoration: none;
-            transition: background-color 0.3s ease;
-            margin-top: 15px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(241, 90, 34, 0.3);
+            width: 100%;
         }
 
         .join-meeting-btn:hover {
-            background-color: #0056b3;
-            /* Darker blue when hovered */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(241, 90, 34, 0.4);
         }
 
         /* Responsive design for smaller screens */
         @media screen and (max-width: 768px) {
             .subject-item {
-                width: 80%;
-                /* Adjust the width for smaller screens */
-                height: auto;
-                /* Allow height to adjust accordingly */
-                margin: 10px auto;
-                /* Center the subject boxes */
+                width: 45%;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .subject-item {
+                width: 90%;
             }
         }
 
-        
         #live-sessions h2 {
-            font-size: 2rem; /* Adjust font size as needed */
-            color: #333; /* Adjust text color as needed */
-            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin: 40px 0 10px 0;
             text-align: center;
+            background: linear-gradient(to right, #F15A22, #FF7A00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
+        .class-section h3 {
+            font-size: 1.5rem;
+            color: #475569;
+            font-weight: 600;
+        }

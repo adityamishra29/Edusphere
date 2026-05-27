@@ -1,0 +1,30 @@
+{
+  "name": "edureach-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adityamishra29/edusphere.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/adityamishra29/edusphere/issues"
+  },
+  "homepage": "https://github.com/adityamishra29/edusphere#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.5.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="image/png" href="Sessions/images/courses/new logo.png">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Comaptible" content="IE=edge">
+	<title>EduSphere</title>
+	<meta name="desciption" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="manifest" href="manifest.json">
+	<script type="text/javascript" src="script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script>
+		$(window).on('scroll', function () {
+			if ($(window).scrollTop()) {
+				$('nav').addClass('black');
+			} else {
+				$('nav').removeClass('black');
+			}
+		})
+	</script>
+</head>
+
+<body>
+	<header>
+	<!-- Navigation Bar -->
+	<nav>
+		<div class="logo">
+			<span style="color: #F15A22; font-weight: 900; font-size: 28px;">EduSphere</span>
+		</div>
+
+		<ul>
+			<li><a class="active" href="" data-i18n="nav-home">Home</a></li>
+			<li><a href="#portfolio_section" data-i18n="nav-digital-modules">Digital Modules</a></li>
+			<li><a href="#services_section" data-i18n="nav-features">Features</a></li>
+			<li><a href="teacher-login.html" data-i18n="nav-teacher-portal">Teacher Portal</a></li>
+		</ul>
+
+		<div class="nav-actions">
+			<div class="custom-lang-selector">
+				<select onchange="changeLanguage(this.value)">
+					<option value="en">English</option>
+					<option value="hi">हिंदी (Hindi)</option>
+					<option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+					<option value="mr">मराठी (Marathi)</option>
+				</select>
+			</div>
+			<a class="sign-in" href="login.html" data-i18n="nav-sign-in">Sign In</a>
+		</div>
+
+		<img src="images/icon/menu.png" class="menu" onclick="sideMenu(0)">
+	</nav>
+	
+	<div class="hero-container">
+			<div class="hero-text">
+			<h1 data-i18n="hero-title">Empowering Rural Nabha with <span class="highlight">Digital Education</span></h1>
+			<p data-i18n="hero-desc">Bridging the digital divide with interactive offline lessons, digital literacy modules, and local language support.</p>
+			<div class="hero-actions">
+				<a href="login.html" class="btn-primary" data-i18n="hero-get-started">Get Started</a>
+				<div class="play">
+					<img src="images/icon/play.png" alt="play">
+					<span><a href="https://www.youtube.com/watch?v=uRpcKFFC9LY" target="_blank" data-i18n="hero-watch">Watch How it Works</a></span>
+				</div>
+				</div>
+			</div>
+			<div class="hero-image">
+				<img src="images/extra/svg1.jpg" alt="Student Learning">
+			</div>
+		</div>
+		<div class="side-menu" id="side-menu">
+			<div class="close" onclick="sideMenu(1)"><img src="images/icon/close.png" alt=""></div>
+			<div class="user">
+				<img src="images/icon/logo.png" alt="Username">
+				<p><a href="login.html">EduSphere</a></p><br>
+			
+			</div>
+			<ul>
+				<li><a href="#about_section">About</a></li>
+				<li><a href="#portfolio_section">Portfolio</a></li>
+				<li><a href="#team_section">Team</a></li>
+				<li><a href="#services_section">Services</a></li>
+				<li><a href="#contactus_section">Contact</a></li>
+				<li><a href="#feedBACK">Feedback</a></li>
+			</ul>
+		</div>
+	</header>
+	<!-- Class Selection Section -->
+	<!-- Class Selection Section -->
+	<div class="section-title" id="study_resources" style="margin-top: 60px;">
+		<h2 data-i18n="study-title">Study Resources</h2>
+		<p data-i18n="study-desc">A diverse array of learning materials to enhance your educational journey.</p>
+	</div>
+	
+	<div class="resources-container">
+		<div class="resource-card blue-card">
+			<h3 data-i18n="study-books">Reference Books</h3>
+			<p data-i18n="study-books-desc">Our experts have created thorough study materials that break down complicated concepts into easily understandable content</p>
+			<img src="images/books.png" class="resource-main-img" alt="Reference Books">
+			<a href="#" class="explore-btn" data-i18n="study-explore">Explore</a>
+		</div>
+		<div class="resource-card yellow-card">
+			<h3 data-i18n="study-ncert">NCERT Solutions</h3>
+			<p data-i18n="study-ncert-desc">Unlock academic excellence with detailed NCERT Solutions which provides you step-by-step solutions</p>
+			<img src="images/solutions.png" class="resource-main-img" alt="NCERT Solutions">
+			<a href="#" class="explore-btn" data-i18n="study-explore">Explore</a>
+		</div>
+		<div class="resource-card green-card">
+			<h3 data-i18n="study-notes">Notes</h3>
+			<p data-i18n="study-notes-desc">Use our detailed study materials that simplify complex ideas into easily understandable language</p>
+			<img src="images/notes.png" class="resource-main-img" alt="Study Notes">
+			<a href="#" class="explore-btn" data-i18n="study-explore">Explore</a>
+		</div>
+	</div>
+
+	<!-- Competitive Exams Section -->
+	<div class="section-title">
+		<h2>Competitive Exam Prep</h2>
+		<p>Advanced coaching for national level entrance exams</p>
+	</div>
+	<div class="class-grid-container" style="margin-bottom: 60px;">
+		<div class="class-grid">
+			<div class="class-card highlight-card" onclick="openCourseModal('NEET Preparation', 'EXrzDxx2ab8', 'Advanced biology, physics, and chemistry coaching for medical entrance.')">
+				<div class="class-icon">🩺</div>
+				<h3>NEET</h3>
+			</div>
+			<div class="class-card highlight-card" onclick="openCourseModal('JEE Preparation', 'EXrzDxx2ab8', 'Comprehensive mathematics, physics, and chemistry for engineering exams.')">
+				<div class="class-icon">🚀</div>
+				<h3>JEE</h3>
+			</div>
+			<div class="class-card highlight-card" onclick="openCourseModal('IPMAT Preparation', 'EXrzDxx2ab8', 'Quantitative aptitude and verbal ability for integrated management programs.')">
+				<div class="class-icon">💼</div>
+				<h3>IPMAT</h3>
+			</div>
+			<div class="class-card highlight-card" onclick="openCourseModal('CUET Preparation', 'EXrzDxx2ab8', 'Common University Entrance Test preparation across multiple domains.')">
+				<div class="class-icon">🎓</div>
+				<h3>CUET</h3>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ABOUT -->
+	<div class="section-title" id="about_section">
+		<h2>About Us</h2>
+		<p>Discover who we are and what drives us</p>
+	</div>
+	<div class="about-content">
+		<div class="side-image">
+			<img class="sideImage" src="images/extra/svg1.jpg" alt="About EduSphere">
+		</div>
+		<div class="side-text">
+			<h2>What you think about us ?</h2>
+			<p>At EduSphere, we are dedicated to building meaningful connections and empowering communities through education. Our mission is to deliver innovative tools and resources that address the unique challenges faced by learners, especially in underserved and rural areas.</p>
+			<p>We are committed to accessibility, reliability, and personalized support—bridging the gap between traditional education and modern learning solutions. Every piece of feedback we receive helps us grow, improve, and expand quality learning opportunities for all.</p>
+			<p>At EduSphere your voice matters—because together we are shaping the future of education.</p>
+		</div>
+	</div>
+
+
+	<!-- IMPACT SECTION -->
+	<div class="impact-section" id="portfolio_section">
+		<div class="section-title">
+			<h2 style="font-size: 50px; font-weight: 800; color: #1e293b; margin-bottom: 20px;">Our Rural <span class="highlight">Impact</span></h2>
+			<div class="impact-card">
+				<p>
+					Digital literacy is not a luxury; it is a fundamental right. In rural areas like Nabha, 
+					access to quality digital education can break cycles of disadvantage. At <strong>EduSphere</strong>, our mission is to empower students with the essential tech skills they need to thrive in a modern world, overcoming barriers of poor internet and outdated infrastructure.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="extra">
+		<p>Expanding our reach to every village</p>
+		<div class="smbox">
+			<div class="stat-card">
+				<div class="data">3,450+</div>
+				<div class="det">Rural Students Reached</div>
+			</div>
+			<div class="stat-card">
+				<div class="data">24</div>
+				<div class="det">Local Language Modules</div>
+			</div>
+			<div class="stat-card">
+				<div class="data">142</div>
+				<div class="det">Schools Connected</div>
+			</div>
+			<div class="stat-card">
+				<div class="data">100%</div>
+				<div class="det">Offline Accessibility</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- INNOVATIVE APPROACH -->
+	<div class="innovative-section" id="team_section">
+		<div class="section-title">
+			<h2 style="font-size: 50px; font-weight: 800; color: #1e293b; margin-bottom: 50px;">Our Innovative <span class="highlight">Approach</span></h2>
+		</div>
+		<div class="approach-grid">
+			<div class="approach-card">
+				<div class="approach-icon">📶</div>
+				<h3>Offline-First PWA</h3>
+				<p>Our Progressive Web App caches all educational modules on the device, ensuring uninterrupted learning for students even without internet access.</p>
+			</div>
+			<div class="approach-card">
+				<div class="approach-icon">🗣️</div>
+				<h3>Localized Content</h3>
+				<p>Lessons and interface are provided in Punjabi, Hindi, and English. This breaks the language barrier and accelerates foundational learning.</p>
+			</div>
+			<div class="approach-card">
+				<div class="approach-icon">📊</div>
+				<h3>Data-Driven Tracking</h3>
+				<p>Teachers get access to sync dashboards to monitor student progress across modules, easily identifying where extra support is needed.</p>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- FEATURES -->
+	<div class="service-swipe">
+		<div class="diffSection" id="services_section">
+			<center>
+				<p style="font-size: 40px; padding: 100px 20px 40px; color: #1e293b; font-weight: 800;">Why Choose EduSphere?</p>
+			</center>
+		</div>
+		<a href="subjects/computer_courses.html">
+			<div class="s-card"><img src="images/icon/computer-courses.png">
+				<p>Free Online Computer Courses</p>
+			</div>
+		</a>
+		<a href="subjects/jee.html">
+			<div class="s-card"><img src="images/icon/brainbooster.png">
+				<p>Building Concepts for Competitive Exams</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="s-card"><img src="images/icon/online-tutorials.png">
+				<p>Online Video Lectures</p>
+			</div>
+		</a>
+		<a href="subjects/jee.html#sample_papers">
+			<div class="s-card"><img src="images/icon/papers.jpg">
+				<p>Sample Papers of Various Competitive Exams</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="s-card"><img src="images/icon/p3.png">
+				<p>Performance and Ranking Report</p>
+			</div>
+		</a>
+		<a href="#contactus_section">
+			<div class="s-card"><img src="images/icon/discussion.png">
+				<p>Discussion with Our Tutors & Mentors</p>
+			</div>
+		</a>
+		<a href="subjects/quiz.html">
+			<div class="s-card"><img src="images/icon/q1.png">
+				<p>Daily Brain Teasing Questions to Improve IQ</p>
+			</div>
+		</a>
+		<a href="#contactus_section">
+			<div class="s-card"><img src="images/icon/help.png">
+				<p>24x7 Online Support</p>
+			</div>
+		</a>
+	</div>
+
+	<!-- Reviews by Students -->
+	<div id="makeitfull">
+		<a href="#review_section"><img src="images/icon/makeitfull.png"></a>
+	</div>
+	<div class="review">
+		<div class="diffSection" id="review_section">
+			<center>
+				<p style="font-size: 36px; font-weight: 800; padding: 100px 20px 40px; color: #2E3D49;">Success Stories</p>
+			</center>
+		</div>
+		<div class="rev-container">
+			<div class="rev-card">
+				<div class="identity">
+					<img src="images/creator/humanNotExist1.jpg">
+					<p>Gurpreet Singh</p>
+					<h6>Digital Literacy</h6>
+					<div class="rating"><img src="images/icon/star.png"><img src="images/icon/star.png"><img
+							src="images/icon/star.png"><img src="images/icon/star.png"><img src="images/icon/star.png">
+					</div>
+				</div>
+				<div class="rev-cont">
+					<p id="title">Review:</p>
+					<p id="content">
+						"The offline feature of this app changed everything for me. In my village, internet is very weak, but because of EduSphere, I could download the Computer Basics module and learn typing without any network drops."
+					</p>
+				</div>
+			</div>
+			<div class="rev-card">
+				<div class="identity">
+					<img src="images/creator/humanNotExist2.jpg">
+					<p>Amanpreet Kaur</p>
+					<h6>Spoken English</h6>
+					<div class="rating"><img src="images/icon/star.png"><img src="images/icon/star.png"><img
+							src="images/icon/star.png"><img src="images/icon/star.png"><img src="images/icon/star.png">
+					</div>
+				</div>
+				<div class="rev-cont">
+					<p id="title">Review:</p>
+					<p id="content">
+						"I always wanted to learn English but didn't have access to good teachers here in Nabha. The interactive lessons in Punjabi helped me understand the basics so fast. My confidence has grown tremendously!"
+					</p>
+				</div>
+			</div>
+			<div class="rev-card">
+				<div class="identity">
+					<img src="images/creator/humanNotExist3.jpg">
+					<p>Rahul Sharma</p>
+					<h6>Cyber Safety</h6>
+					<div class="rating"><img src="images/icon/star.png"><img src="images/icon/star.png"><img
+							src="images/icon/star.png"><img src="images/icon/star.png"><img src="images/icon/star.png">
+					</div>
+				</div>
+				<div class="rev-cont">
+					<p id="title">Review:</p>
+					<p id="content">
+						"My parents were afraid of using the internet, but the Cyber Safety modules taught me how to browse securely. Now I even help my father pay his farming bills online safely. Great initiative!"
+					</p>
+				</div>
+			</div>
+			<div class="rev-card">
+				<div class="identity">
+					<img src="images/creator/humanNotExist4.jpg">
+					<p>Simranjit Kaur</p>
+					<h6>Class 10 Basics</h6>
+					<div class="rating"><img src="images/icon/star.png"><img src="images/icon/star.png"><img
+							src="images/icon/star.png"><img src="images/icon/star.png"><img src="images/icon/star.png">
+					</div>
+				</div>
+				<div class="rev-cont">
+					<p id="title">Review:</p>
+					<p id="content">
+						"The best part about this platform is the teacher dashboard. My school teacher tracks my progress every week and gives me special assignments. The local language support is a huge blessing."
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- CONTACT US -->
+	<div class="diffSection" id="contactus_section">
+		<center>
+			<p style="font-size: 50px; padding: 100px">Contact Us</p>
+		</center>
+		<div class="csec"></div>
+		<div class="back-contact">
+			<div class="cc">
+				<form action="" method="post" enctype="text/plain">
+					<label>First Name <span class="imp">*</span></label><label style="margin-left: 185px">Last Name
+						<span class="imp">*</span></label><br>
+					<center>
+						<input type="text" name="" style="margin-right: 10px; width: 175px" required="required"><input
+							type="text" name="lname" style="width: 175px" required="required"><br>
+					</center>
+					<label>Email <span class="imp">*</span></label><br>
+					<input type="email" name="mail" style="width: 100%" required="required"><br>
+					<label>Message <span class="imp">*</span></label><br>
+					<input type="text" name="message" style="width: 100%" required="required"><br>
+					<label>Additional Details</label><br>
+					<textarea name="addtional"></textarea><br>
+					<button type="submit" id="csubmit">Send Message</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- FEEDBACK -->
+	<div class="title2" id="feedBACK">
+		<span>Give Feedback</span>
+		<div class="shortdesc2">
+			<p>Please share your valuable feedback to us</p>
+		</div>
+	</div>
+
+	<div class="feedbox">
+		<div class="feed">
+			<form action="" method="post" enctype="text/plain">
+				<label>Your Name</label><br>
+				<input type="text" name="" class="fname" required="required"><br>
+				<label>Email</label><br>
+				<input type="email" name="mail" required="required"><br>
+				<label>Additional Details</label><br>
+				<textarea name="addtional"></textarea><br>
+				<button type="submit" id="csubmit">Send Message</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Sliding Information -->
+	<marquee style="background: linear-gradient(to right, #F15A22, #FF7A00); margin-top: 50px; padding: 12px 0;" direction="left"
+		onmouseover="this.stop()" onmouseout="this.start()" scrollamount="12">
+		<div class="marqu" style="font-family: 'Inter', sans-serif; font-weight: 600;">Welcome to EduSphere - A specialized Digital Learning Platform for Rural School Students in Nabha (SIH Problem Statement 25019). Empowering the youth through offline-first education.</div>
+	</marquee>
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="footer-container">
+			<div class="left-col">
+				<h2 style="color: #fff; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 32px; margin-bottom: 10px;">EduSphere</h2>
+				<p style="color: #cbd5e1; max-width: 400px; margin-bottom: 20px; line-height: 1.6;">A modern, offline-capable Progressive Web App designed to bring digital literacy and quality education to the rural students of Nabha district.</p>
+				<div class="social-media">
+					<a href="#"><img src="images/icon\fb.png"></a>
+					<a href="#"><img src="images/icon\insta.png"></a>
+					<a href="#"><img src="images/icon\tt.png"></a>
+					<a href="#"><img src="images/icon\ytube.png"></a>
+					<a href="#"><img src="images/icon\linkedin.png"></a>
+				</div><br><br>
+				<p class="rights-text">Copyright © 2026 Developed for SIH 25019. All Rights Reserved.</p>
+				<br>
+				<p><img src="images/icon/location.png"> Nabha District, Punjab, India<br> </p>
+				<br>
+				<p><img src="images/icon/phone.png"> +91-98765-43210<br><img src="images/icon/mail.png"> contact@edusphere.in</p>
+			</div>
+			<div class="right-col">
+				<h1 style="color: #fff">Stay Updated</h1>
+				<div class="border"></div><br>
+				<p style="color: #cbd5e1;">Get notified when we add new local language modules.</p>
+				<form class="newsletter-form">
+					<input class="txtb" type="email" placeholder="Enter Your Email">
+					<input class="btn" type="submit" value="Subscribe">
+				</form>
+			</div>
+		</div>
+	</footer>
+
+<!-- Chatbot Toggle Button -->
+<button id="chat-toggle-btn" onclick="toggleChat()" style="
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F15A22, #FF7A00);
+  color: white;
+  border: none;
+  box-shadow: 0 10px 25px rgba(241, 90, 34, 0.4);
+  cursor: pointer;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path></svg>
+</button>
+
+<div id="chatbox" style="display: none;">
+  <div id="chat-header">
+    <div style="display: flex; flex-direction: column;">
+      <div class="chat-title">EduSphere AI <span style="font-size: 1.2em;">🤖</span></div>
+      <div class="chat-status">Online</div>
+    </div>
+    <button onclick="toggleChat()" style="background: none; border: none; color: white; cursor: pointer; font-size: 28px; line-height: 1; padding: 0; margin-top: -10px;">&times;</button>
+  </div>
+  <div id="messages"></div>
+  <div class="chat-input-area">
+    <input id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+    </button>
+  </div>
+</div>
+<!-- Hidden Google Translate Element -->
+<div id="google_translate_element" style="display:none;"></div>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'pa,en,hi',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+function changeLanguage(langCode) {
+  var select = document.querySelector('.goog-te-combo');
+  if(select) {
+    select.value = langCode;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  function toggleChat() {
+    var chatbox = document.getElementById("chatbox");
+    if (chatbox.style.display === "none" || chatbox.style.display === "") {
+      chatbox.style.display = "flex";
+    } else {
+      chatbox.style.display = "none";
+    }
+  }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+</script>
+	<!-- Animated Course Modal -->
+	<div class="course-modal-overlay" id="courseModalOverlay" onclick="closeCourseModal()">
+		<div class="course-modal" onclick="event.stopPropagation()">
+			<div class="close-modal" onclick="closeCourseModal()">❌</div>
+			<div class="modal-video-wrapper">
+				<iframe id="modalVideo" src="" allowfullscreen></iframe>
+			</div>
+			<div class="modal-details">
+				<h2 id="modalTitle">Course Title</h2>
+				<p id="modalDesc">Course description goes here.</p>
+				
+				<div class="curriculum-preview">
+					<h3>Course Chapters</h3>
+					<div class="lesson"><span class="lesson-icon">▶️</span> Introduction & Overview</div>
+					<div class="lesson"><span class="lesson-icon">🔒</span> Core Concepts</div>
+					<div class="lesson"><span class="lesson-icon">🔒</span> Practical Exercises</div>
+				</div>
+
+				<a href="login.html" class="btn-primary" style="display: block; text-align: center; margin-top: 20px;">Enroll & Start Learning</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function openCourseModal(title, videoId, desc) {
+			document.getElementById('modalTitle').textContent = title;
+			document.getElementById('modalDesc').textContent = desc;
+			document.getElementById('modalVideo').src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+			
+			const overlay = document.getElementById('courseModalOverlay');
+			overlay.classList.add('active');
+			document.body.style.overflow = 'hidden'; // Prevent scrolling
+		}
+
+		function closeCourseModal() {
+			const overlay = document.getElementById('courseModalOverlay');
+			overlay.classList.remove('active');
+			document.getElementById('modalVideo').src = ""; // Stop video
+			document.body.style.overflow = 'auto'; // Restore scrolling
+		}
+	</script>
+
+</body>
+</html>

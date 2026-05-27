@@ -1,0 +1,21 @@
+{
+  "name": "EduSphere Digital Learning",
+  "short_name": "EduSphere",
+  "description": "Digital Learning Platform for Rural School Students in Nabha",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#F15A22",
+  "icons": [
+    {
+      "src": "images/icon/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -71,10 +71,10 @@ function login() {
 // CheckBox Function
 function goFurther(){
   if (document.getElementById("chkAgree").checked == true) {
-    document.getElementById('btnSubmit').style = 'background: linear-gradient(to right, #FA4B37, #DF2771);';
+    document.getElementById('btnSubmit').style = 'background: linear-gradient(to right, #F15A22, #FF7A00); color: white; box-shadow: 0 5px 15px rgba(241, 90, 34, 0.3);';
   }
   else{
-    document.getElementById('btnSubmit').style = 'background: lightgray;';
+    document.getElementById('btnSubmit').style = 'background: #cbd5e1; color: #475569; box-shadow: none;';
   }
 }
 
@@ -168,3 +168,167 @@ function sideMenu(side) {
   }
   side++;
 }
+// ===== TYPING EFFECT =====
+
+const textArray = [
+  "Learn Smarter.",
+  "Grow Faster.",
+  "Succeed Stronger."
+];
+
+let textIndex = 0;
+let charIndex = 0;
+
+const typingSpeed = 80;
+const erasingSpeed = 40;
+const delayBetween = 1500;
+
+function type() {
+  const typingElement = document.querySelector(".typing-text");
+  if (!typingElement) return; // Prevent crash if element doesn't exist
+  if (charIndex < textArray[textIndex].length) {
+    typingElement.textContent += textArray[textIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingSpeed);
+  } else {
+    setTimeout(erase, delayBetween);
+  }
+}
+
+function erase() {
+  const typingElement = document.querySelector(".typing-text");
+  if (!typingElement) return; // Prevent crash
+  if (charIndex > 0) {
+    typingElement.textContent = textArray[textIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(erase, erasingSpeed);
+  } else {
+    textIndex = (textIndex + 1) % textArray.length;
+    setTimeout(type, typingSpeed);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  type();
+});
+async function sendMessage() {
+  const inputBox = document.getElementById("userInput");
+  const messagesDiv = document.getElementById("messages");
+  if (!inputBox || !messagesDiv) return;
+  
+  const message = inputBox.value.trim();
+  if (!message) return;
+
+  // 1. Add User Message immediately
+  messagesDiv.innerHTML += `<div class="msg user-msg">${message}</div>`;
+  inputBox.value = "";
+  
+  // 2. Add Typing Indicator
+  const typingId = "typing-" + Date.now();
+  messagesDiv.innerHTML += `
+    <div class="typing" id="${typingId}">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  `;
+  
+  // Auto-scroll to bottom
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+  try {
+    const res = await fetch("http://localhost:5000/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await res.json();
+    
+    // 3. Remove Typing Indicator and Add Bot Message
+    const typingEl = document.getElementById(typingId);
+    if (typingEl) typingEl.remove();
+    
+    messagesDiv.innerHTML += `<div class="msg bot-msg">${data.reply}</div>`;
+    
+    // Auto-scroll again
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  } catch (err) {
+    const typingEl = document.getElementById(typingId);
+    if (typingEl) typingEl.remove();
+    messagesDiv.innerHTML += `<div class="msg bot-msg" style="color: red;">Error: Could not reach the server.</div>`;
+  }
+}
+
+const userInputEl = document.getElementById("userInput");
+if (userInputEl) {
+  userInputEl.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  });
+}
+
+// ===== DATABASE API CONNECTION =====
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("login");
+  const registerForm = document.getElementById("register");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const res = await fetch("http://localhost:5000/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert("Login Successful! Welcome back.");
+          window.location.href = "student-dashboard.html";
+        } else {
+          alert(data.message);
+        }
+      } catch (err) {
+        alert("Error connecting to database server. Is server.js running?");
+      }
+    });
+  }
+
+  if (registerForm) {
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("reg-name").value;
+      const email = document.getElementById("reg-email").value;
+      const pass = document.getElementById("reg-pass").value;
+      const passConfirm = document.getElementById("reg-pass-confirm").value;
+
+      if (pass !== passConfirm) {
+        return alert("Passwords do not match!");
+      }
+
+      try {
+        const res = await fetch("http://localhost:5000/api/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password: pass })
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert("Registration Successful! Please log in.");
+          login(); // Switch back to the login tab automatically
+          document.getElementById("email").value = email; // auto fill
+          document.getElementById("password").value = pass; // auto fill
+        } else {
+          alert(data.message);
+        }
+      } catch (err) {
+        alert("Error connecting to database server. Is server.js running?");
+      }
+    });
+  }
+});

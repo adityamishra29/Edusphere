@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EduSphere Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+    }
+
+    .dashboard {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      background: #111827;
+      color: white;
+      padding: 25px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #9ca3af;
+      text-decoration: none;
+      margin: 12px 0;
+    }
+
+    .sidebar a:hover {
+      color: white;
+    }
+
+    .main {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .main h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      background: linear-gradient(135deg, #ff4b7d, #6c63ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* FIXED */
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 220px;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card:nth-child(1) { border-top: 5px solid #ff4b7d; }
+    .card:nth-child(2) { border-top: 5px solid #6c63ff; }
+    .card:nth-child(3) { border-top: 5px solid #22c55e; }
+  </style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <div class="sidebar">
+    <h2>EduSphere</h2>
+    <a href="index.html">🏠 Home</a>
+    <a href="#">📚 My Courses</a>
+    <a href="#">📈 Progress</a>
+    <a href="#">📝 Quiz</a>
+    <a href="#">🚪 Logout</a>
+  </div>
+
+  <div class="main">
+    <h1>Welcome, Student 👋</h1>
+
+    <!-- IMPORTANT FIX -->
+    <div class="cards">
+      <div class="card">
+        <h3>Courses Enrolled</h3>
+        <p id="courses">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Completed</h3>
+        <p id="completed">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Pending</h3>
+        <p id="pending">0</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ONLY ONE SCRIPT -->
+<script>
+fetch("http://localhost:5000/api/student")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("courses").innerText = data.courses;
+    document.getElementById("completed").innerText = data.completed;
+    document.getElementById("pending").innerText = data.pending;
+  })
+  .catch(err => console.log(err));
+</script>
+
+</body>
+</html>

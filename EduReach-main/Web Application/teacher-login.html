@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="png" href="images/icon/favicon.png">
+	<title>Teacher Portal - EduSphere</title>
+	<link rel="stylesheet" type="text/css" href="loginStyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        /* Specific overrides for Teacher Login */
+        .brand-title p {
+            color: #64748b;
+        }
+        .form-box {
+            height: 420px; /* Shorter box since no register option */
+        }
+        .submit-btn {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+		<div class="form-box">
+			<div class="brand-title" style="margin-bottom: 30px;">
+				<h1>EduSphere <span style="color: #64748b; font-size: 20px;">| Teachers</span></h1>
+				<p>Secure Portal for Educators</p>
+			</div>
+			
+			<form id="teacher-login" class="input-group" style="top: 150px; position: absolute; width: 280px; transition: .5s;">
+				<div class="inp">
+					<img src="images/icon/user.png"><input type="text" id="uid" class="input-field" placeholder="Teacher UID" style="width: 88%; border:none;" required="required">
+				</div>
+				<div class="inp">
+					<img src="images/icon/password.png"><input type="password" id="password" class="input-field" placeholder="Password" style="width: 88%; border: none;" required="required">
+				</div>
+				<button type="submit" class="submit-btn" style="background: linear-gradient(to right, #1e293b, #334155);">Login to Dashboard</button>
+			</form>
+		</div>
+
+		<script>
+            document.getElementById("teacher-login").addEventListener("submit", async function(e) {
+                e.preventDefault();
+                const uid = document.getElementById("uid").value;
+                const password = document.getElementById("password").value;
+
+                try {
+                    const res = await fetch("http://localhost:5000/api/teacher-login", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ uid, password })
+                    });
+                    
+                    const data = await res.json();
+                    if (data.success) {
+                        window.location.href = "teacher-dashboard.html";
+                    } else {
+                        alert(data.message);
+                    }
+                } catch (error) {
+                    alert("Error connecting to server. Make sure server.js is running.");
+                }
+            });
+		</script>
+</body>
+</html>

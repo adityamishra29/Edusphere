@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edusphere-app
+  labels:
+    app: edusphere
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: edusphere
+  template:
+    metadata:
+      labels:
+        app: edusphere
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "5000"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+      - name: edusphere
+        image: edusphere-app:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 10

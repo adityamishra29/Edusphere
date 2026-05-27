@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Basics - EduSphere</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #f8fafc;
+      padding-top: 80px; /* offset for fixed navbar */
+    }
+
+    .course-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .course-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Video Player Area */
+    .video-section {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .course-details {
+      padding: 30px;
+    }
+
+    .course-details h1 {
+      margin: 0 0 10px 0;
+      color: #1e293b;
+      font-size: 24px;
+    }
+
+    .course-details p {
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .offline-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #10b981;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .offline-btn:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    /* Curriculum Sidebar */
+    .curriculum {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      padding: 25px;
+      height: fit-content;
+    }
+
+    .curriculum h2 {
+      margin: 0 0 20px 0;
+      color: #0f172a;
+      font-size: 20px;
+    }
+
+    .chapter {
+      margin-bottom: 15px;
+    }
+
+    .chapter-title {
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .lesson {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-bottom: 5px;
+      color: #1e293b;
+      font-weight: 500;
+      border: 1px solid transparent;
+    }
+
+    .lesson:hover {
+      background: #f1f5f9;
+    }
+
+    .lesson.active {
+      background: #fff7ed;
+      border-color: #fdba74;
+      color: #F15A22;
+    }
+
+    .lesson-icon {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    .duration {
+      margin-left: auto;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Reused Navbar -->
+  <nav>
+    <div class="logo">
+      <span style="color: #F15A22; font-weight: 900; font-size: 28px; font-family: 'Inter', sans-serif;">EduSphere</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a class="active" href="student-dashboard.html">Student Portal</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="sign-in" href="login.html">Sign In</a>
+    </div>
+  </nav>
+
+  <div class="course-container">
+    
+    <!-- Video Section -->
+    <div class="video-section">
+      <div class="video-wrapper">
+        <!-- Placeholder educational video from YouTube -->
+        <iframe src="https://www.youtube.com/embed/O-zaXilAKXY" allowfullscreen></iframe>
+      </div>
+      <div class="course-details">
+        <h1>Computer Basics: Introduction to Hardware</h1>
+        <p>In this lesson, you will learn the fundamental components of a computer, including the CPU, RAM, Hard Drive, and peripherals. This is the first step towards your digital literacy journey!</p>
+        <a href="#" class="offline-btn" onclick="alert('Downloading lesson for offline viewing...')">
+          ⬇️ Download Lesson for Offline
+        </a>
+      </div>
+    </div>
+
+    <!-- Curriculum Sidebar -->
+    <div class="curriculum">
+      <h2>Course Content</h2>
+      
+      <div class="chapter">
+        <div class="chapter-title">Chapter 1: Getting Started</div>
+        <div class="lesson active">
+          <span class="lesson-icon">▶️</span>
+          Introduction to Hardware
+          <span class="duration">12:45</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-icon">🔒</span>
+          What is an Operating System?
+          <span class="duration">08:20</span>
+        </div>
+      </div>
+
+      <div class="chapter">
+        <div class="chapter-title">Chapter 2: Essential Software</div>
+        <div class="lesson">
+          <span class="lesson-icon">🔒</span>
+          Using the Mouse and Keyboard
+          <span class="duration">15:10</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-icon">🔒</span>
+          File Management Basics
+          <span class="duration">10:05</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

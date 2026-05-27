@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open EduSphere (Live Server)",
+            "url": "http://localhost:5500/EduReach-main/Web Application/index.html",
+            "webRoot": "${workspaceFolder}/EduReach-main/Web Application"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open index.html (File)",
+            "file": "${workspaceFolder}/EduReach-main/Web Application/index.html"
+        }
+    ]
+}
