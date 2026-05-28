@@ -161,6 +161,13 @@ app.post("/api/teacher-login", (req, res) => {
     return res.status(400).json({ success: false, message: "Invalid Teacher UID or password." });
   }
 });
+app.get("/", (req, res) => {
+  res.send("EduSphere Backend Running Successfully 🚀");
+});
+
+app.listen(PORT, () => {
+  console.log("Server running");
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
