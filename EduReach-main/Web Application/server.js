@@ -4,6 +4,11 @@ const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
 const app = express();
+app.use(express.static(__dirname));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 const PORT = 5000;
 
 // Prometheus metrics setup
